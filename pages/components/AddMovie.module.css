@@ -1,0 +1,54 @@
+.control {
+    margin: 1rem 0;
+  }
+  
+  .control label {
+    display: block;
+    font-weight: bold;
+    font-size: xx-large;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  .control input,
+  .control textarea {
+    display: block;
+    width: 100%;
+    font: inherit;
+    padding: 0.2rem;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    height: 40px;
+  }
+  
+  .control input:focus,
+  .control textarea:focus {
+    outline: none;
+    border-color: #230052;
+  }
+
+  .btn {
+    font: inherit;
+    cursor: pointer;
+    background: #230052;
+    border: 1px solid #230052;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 20px;
+  }
+  
+  .btn:focus {
+    outline: none;
+  }
+  
+  .btn:hover,
+  .btn:active {
+    background-color: #460897;
+    border-color: #460897;
+  }
+
+  .btn:disabled{
+      background-color: grey;
+      cursor:not-allowed;
+  }
+  
