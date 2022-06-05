@@ -16,12 +16,12 @@ const MovieDetails = (props) => {
     const details = JSON.parse(localStorage.getItem("details"));
     // console.log(details.movieId)
       setItems(details);
-  }, [])
+  }, [items])
 
-  const deteleHandler = () => {
+  // const deteleHandler = () => {
 
-    localStorage.clear();
-  }
+  //   localStorage.clear();
+  // }
 
   if(items){
     return (
@@ -32,9 +32,9 @@ const MovieDetails = (props) => {
         <img src={items.image}/>
         <h3>Languages : {items.language}</h3>
         <h4>Plot : {items.plot}</h4> 
-        <div onClick={() => router.push('/')} >
-        <button onClick={deteleHandler}>Go to Main Page</button>
-         </div>
+        {/* <div onClick={() => router.push('/')} > */}
+        <button onClick={() => router.push("/")}>Go to Main Page</button>
+         {/* </div> */}
         
         {/* <p>{props.openingText}</p> */}
         {/* <img src={props.image}/> */}

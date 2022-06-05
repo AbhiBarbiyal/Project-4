@@ -160,7 +160,7 @@ export default function Home() {
       </section>  */}
       <section>{content}</section>
       <div className={styles.point}>
-      <MovieDetails details={movieDetail}/>
+      {/* <MovieDetails details={movieDetail}/> */}
       </div>
       {/* <Link
           href={{
