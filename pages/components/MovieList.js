@@ -8,6 +8,7 @@ const MovieList = (props) => {
     <ul className={classes['movies-list']}>
       {props.movies.map((movie) => (
         <Movie
+        cardClickHandler={props.cardClickHandler}
           key={movie.movieId}
           title={movie.title}
           image={movie.image}

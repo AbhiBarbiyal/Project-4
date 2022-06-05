@@ -29,3 +29,9 @@
   border-color: #460897;
 }
 
+.point {
+  height: 0px;
+  width: 0px;
+  display: none;
+}
+
