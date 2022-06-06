@@ -6,7 +6,7 @@ function AddMovie(props) {
 //   const [movieName, setmovieName] = useState("")
   const [isEmpty, setIsEmpty] = useState(true);
   const [isTouched, setIsTouched] = useState(false);
-  const titleRef = useRef('');
+//   const titleRef = useRef('');
   // const openingTextRef = useRef('');
   // const releaseDateRef = useRef('');
 
@@ -52,7 +52,7 @@ function AddMovie(props) {
     <form onSubmit={submitHandler}>
       <div className={classes.control}>
         <label htmlFor='title'>Search Movie Name</label>
-        <input onBlur={touchedHandler} onChange={nameChangeHandler} type='text' ref={titleRef} id='title' />
+        <input onBlur={touchedHandler} onChange={nameChangeHandler} type='text' id='title' />
         {showUI && <p>Please Enter the Movie Name</p>}
       </div>
       {/* <div className={classes.control}>

@@ -9,14 +9,12 @@ const Movie = (props) => {
 
 
   return (
-      <div onClick={() => props.cardClickHandler(props.movieId)}>
-    <li onClick={() => router.push('./components/MovieDetails')} className={classes.movie}>
+    <li onClick={() => props.cardClickHandler(props.movieId)} className={classes.movie}>
       <h2>Movie ID : {props.movieId}</h2>
       <h2>Movie Name : {props.title}</h2>
       {/* <p>{props.openingText}</p> */}
       <img src={props.image}/>
     </li>
-    </div>
   );
 };
 

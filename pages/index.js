@@ -2,17 +2,19 @@ import styles from '../styles/Home.module.css'
 import React, { useState, useEffect} from 'react';
 import MoviesList from './components/MovieList';
 import AddMovie from './components/AddMovie';
-import MovieDetails from './components/MovieDetails';
-import Link from "next/link";
+import { useRouter } from 'next/router';
+// import MovieDetails from './components/MovieDetails';
+// import Link from "next/link";
 
 export default function Home() {
 
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
   const [searchedMovie, setSearchedMovie] = useState("Batman");
-  const [movieDetail, setMovieDetail] = useState([]);
+  // const [movieDetail, setMovieDetail] = useState([]);
   const [never, setNever] = useState(false);
+  const router = useRouter();
 
 
 
@@ -30,15 +32,17 @@ export default function Home() {
       // console.log(data.Search[0].Title);
       const loadedMovies = [];
       let c = 0;
-      if(!data.Response){
+      // console.log(data)
+      if(data.Response == "False"){
+        // setError('Movie Not Found')
         throw new Error('Movie Not Found');
       }
-      // console.log(data.Response)
-
+      // console.log(data.Search[0].imdbID)
       
-      if(data.Response){
+      // console.log(data.Search[0])
+      
         for(const key in data){
-          // console.log(data.Search[0].imdbID)
+          
           loadedMovies.push(
   
             {
@@ -51,7 +55,7 @@ export default function Home() {
           )
           c++;
         }
-      }
+      
      
       // console.log(loadedMovies)
       setMovies(loadedMovies);
@@ -92,6 +96,7 @@ export default function Home() {
       const detailInMovies = [];
       let c = 0;
       if(!data.Response){
+        // setError('Movie Not Found')
         throw new Error('Movie Not Found');
       }
       // console.log(data.Title)
@@ -111,13 +116,14 @@ export default function Home() {
               // releaseDate : data.Search[c].Year,
             }
           )
-            // console.log(detailInMovies[0])
-          setMovieDetail(detailInMovies[0])
+            console.log("in Index" + detailInMovies[0].movieId)
+          // setMovieDetail(detailInMovies[0])
         
       
      
       // console.log(loadedMovies)
       localStorage.setItem("details", JSON.stringify(detailInMovies[0]))
+      router.push('components/MovieDetails')
       // localStorage.getItem("details");
       setMovies(loadedMovies);
       
@@ -134,7 +140,7 @@ export default function Home() {
   }
 
   if (error) {
-    content = <p>{error}</p>;
+    content = <p className={styles.section}>{error}</p>;
   }
 
   if (isLoading) {

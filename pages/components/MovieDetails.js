@@ -2,21 +2,30 @@ import React from 'react'
 import { useRouter } from "next/router";
 
 import classes from './MovieDetails.module.css'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 const MovieDetails = (props) => {
 
   const router = useRouter()
 
   const [items, setItems] = useState([]);
+  // const [isIn, setIsIn] = useState(true);
+
+  // useCallback(items, [items]
 
   // const details = localStorage.getItem("details"); 
   // console.log(details) 
-  useEffect(() => {
-    const details = JSON.parse(localStorage.getItem("details"));
-    // console.log(details.movieId)
-      setItems(details);
-  }, [items])
+
+
+    useEffect(() => {
+
+      const details = JSON.parse(localStorage.getItem("details"));
+      console.log("in MovieDetials" + details.title)
+        setItems(details);
+        // setIsIn(false);
+    }, [])
+
+  
 
   // const deteleHandler = () => {
 
